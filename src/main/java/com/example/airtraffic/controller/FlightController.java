@@ -38,10 +38,10 @@
             return flightService.createNewFlight(flights);
         }
         @PutMapping("/updateFlight/{flight_id}")
-        public Flights updateFlight(@PathVariable int flight_id,@RequestBody Flights updatedFlights){
+        public Flights updateFlight(@PathVariable(value = "flight_id") int flight_id,@RequestBody Flights updatedFlights){
             return flightService.updateFlight(flight_id, updatedFlights);
         }
-        @DeleteMapping("/delete{flight_id}")
+        @DeleteMapping("/delete/{flight_id}")
         public  void  deleteFlight(@PathVariable int flight_id){
             flightService.deleteFlight(flight_id);
         }

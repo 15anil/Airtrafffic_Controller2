@@ -1,10 +1,11 @@
 package com.example.airtraffic.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 @Entity
 @Table(name = "Flights_table")
 @Data
@@ -15,7 +16,7 @@ public class Flights {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int flight_id;
     private String flight_name;
-    private boolean isDomestic;
+    private boolean domestic;
     private boolean status;
     private String arrivedAirport;
     private String departureAirport;
@@ -23,12 +24,10 @@ public class Flights {
     private String arrivalTime;
     private double ticketPrice;
     private int capacity;
-    @ManyToOne
-    @JsonManagedReference
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "runway_id")
     private Runway runway;
-    @ManyToOne
-    @JsonManagedReference
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "terminal_id")
     private Terminal terminal;
 

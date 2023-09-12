@@ -3,6 +3,8 @@ package com.example.airtraffic.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,10 +24,9 @@ public class Runway {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int runway_id;
     private String name;
-    private boolean isRunWayAvailable;
     private int length;
+    private  boolean runwayAvailable;
     @OneToMany(mappedBy = "runway",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JsonBackReference
     private List<Flights> flights;
 
 }

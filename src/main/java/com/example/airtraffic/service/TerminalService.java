@@ -43,7 +43,7 @@ public class TerminalService {
         if (optionalTerminal.isPresent()) {
             Terminal existingTerminal = optionalTerminal.get();
             existingTerminal.setName(updatedTerminal.getName());
-            existingTerminal.setDomestic(updatedTerminal.isDomestic());
+            existingTerminal.setDomesticTerminal(updatedTerminal.isDomesticTerminal());
             existingTerminal.setFlightParkingCapacity(updatedTerminal.getFlightParkingCapacity());
             existingTerminal.setLocation(updatedTerminal.getLocation());
             Terminal updatedTerminalEntity = terminalRepository.save(existingTerminal);

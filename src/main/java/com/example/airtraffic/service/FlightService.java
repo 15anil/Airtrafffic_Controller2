@@ -14,7 +14,7 @@ import java.util.Optional;
 public class FlightService {
     @Autowired
     private FlightRepo flightRepo;
-    private RunwayRepo runwayRepo;
+
     public ResponseEntity<List<Flights>> getAllFlights(){
         List<Flights> flights = flightRepo.findAll();
         return new ResponseEntity<>(flights, HttpStatus.OK);
@@ -31,6 +31,7 @@ public class FlightService {
     }
     public Flights createNewFlight(Flights flights){
         return flightRepo.save(flights);
+
     }
     public Flights updateFlight(int flight_id,Flights updatedFlight){
         Optional<Flights> optionalFlights1 = flightRepo.findById(flight_id);

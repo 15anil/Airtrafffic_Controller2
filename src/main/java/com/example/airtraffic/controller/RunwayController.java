@@ -19,7 +19,7 @@ public class RunwayController {
     public ResponseEntity<List<Runway>> getAllRunways(){
         return runwayService.getAllRunways();
     }
-    @GetMapping("/{runway_id}")
+    @GetMapping("getRunwayById/{runway_id}")
     public ResponseEntity<Runway> getRunwayById(@PathVariable int runway_id){
         return runwayService.getRunwayById(runway_id);
     }
