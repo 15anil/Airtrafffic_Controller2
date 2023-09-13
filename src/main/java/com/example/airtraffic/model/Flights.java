@@ -24,9 +24,11 @@ public class Flights {
     private String arrivalTime;
     private double ticketPrice;
     private int capacity;
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "runway_id")
     private Runway runway;
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "terminal_id")
     private Terminal terminal;
