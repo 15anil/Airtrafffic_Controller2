@@ -37,7 +37,6 @@ public class RunwayService {
         if (optionalRunway.isPresent()){
             Runway existingRunway = optionalRunway.get();
             existingRunway.setName(updatedRunway.getName());
-            existingRunway.setRunway_id(updatedRunway.getRunway_id());
             existingRunway.setLength(updatedRunway.getLength());
             existingRunway.setRunwayAvailable(updatedRunway.isRunwayAvailable());
             Runway updatedRunwayEntity = runwayRepo.save(existingRunway);

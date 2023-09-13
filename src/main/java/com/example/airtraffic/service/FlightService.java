@@ -38,7 +38,6 @@ public class FlightService {
         if(optionalFlights1.isPresent()){
             Flights exisitingFlights = optionalFlights1.get();
             exisitingFlights.setFlight_name(updatedFlight.getFlight_name());
-            exisitingFlights.setFlight_id(updatedFlight.getFlight_id());
             exisitingFlights.setDomestic(updatedFlight.isDomestic());
             exisitingFlights.setStatus(updatedFlight.isStatus());
             exisitingFlights.setCapacity(updatedFlight.getCapacity());
