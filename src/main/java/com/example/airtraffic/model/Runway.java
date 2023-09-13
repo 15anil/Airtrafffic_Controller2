@@ -1,10 +1,4 @@
 package com.example.airtraffic.model;
-
-
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,6 +20,7 @@ public class Runway {
     private String name;
     private int length;
     private  boolean runwayAvailable;
+    @JsonManagedReference("runwayReference")
     @OneToMany(mappedBy = "runway",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Flights> flights;
 

@@ -1,8 +1,6 @@
 package com.example.airtraffic.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,12 +22,12 @@ public class Flights {
     private String arrivalTime;
     private double ticketPrice;
     private int capacity;
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonBackReference("runwayReference")
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
     @JoinColumn(name = "runway_id")
     private Runway runway;
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonBackReference("terminalReference")
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
     @JoinColumn(name = "terminal_id")
     private Terminal terminal;
 
